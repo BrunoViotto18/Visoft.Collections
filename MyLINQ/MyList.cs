@@ -19,7 +19,7 @@ public struct MyList<T> : IEnumerable<T>
 
     public MyList()
     {
-        array = new T[4];
+        array = new T[10];
         Count = 0;
     }
 
@@ -41,6 +41,12 @@ public struct MyList<T> : IEnumerable<T>
             array = a;
         }
         array[Count++] = item;
+    }
+
+    public void Clear()
+    {
+        array = new T[10];
+        Count = 0;
     }
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmarks.ClearBenchmark-20220826-164133</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19044.1889/21H2/November2021Update)
+Intel Core i5-7500T CPU 2.70GHz (Kaby Lake), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=6.0.301
+  [Host]     : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT AVX2
+  Job-BEGQSX : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>InvocationCount=1  UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>   Method</th><th>ListSize</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>MyListClear</td><td>10000</td><td>1,136.7 ns</td><td>67.74 ns</td><td>197.6 ns</td><td>544 B</td>
+</tr><tr><td>NormalListClear</td><td>10000</td><td>208.5 ns</td><td>45.59 ns</td><td>130.1 ns</td><td>480 B</td>
+</tr><tr><td>MyListClear</td><td>100000</td><td>1,380.5 ns</td><td>56.49 ns</td><td>154.6 ns</td><td>544 B</td>
+</tr><tr><td>NormalListClear</td><td>100000</td><td>321.3 ns</td><td>50.00 ns</td><td>142.6 ns</td><td>480 B</td>
+</tr><tr><td>MyListClear</td><td>1000000</td><td>1,457.8 ns</td><td>92.05 ns</td><td>256.6 ns</td><td>544 B</td>
+</tr><tr><td>NormalListClear</td><td>1000000</td><td>547.7 ns</td><td>71.56 ns</td><td>197.1 ns</td><td>480 B</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -12,6 +12,6 @@ public class Program
 {
     static void Main()
     {
-        BenchmarkRunner.Run<AddBenchmark>();
+        BenchmarkRunner.Run<ClearBenchmark>();
     }
 }
