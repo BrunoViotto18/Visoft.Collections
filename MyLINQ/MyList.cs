@@ -5,7 +5,7 @@ namespace MyLINQ;
 
 public struct MyList<T> : IEnumerable<T>
 {
-    T[] array;
+    private T[] array { get; set; }
     public int Count { get; private set; }
 
     public T this[int index]
@@ -19,7 +19,7 @@ public struct MyList<T> : IEnumerable<T>
 
     public MyList()
     {
-        array = new T[4];
+        array = new T[10];
         Count = 0;
     }
 
@@ -43,12 +43,23 @@ public struct MyList<T> : IEnumerable<T>
         array[Count++] = item;
     }
 
+    public void Clear()
+        => Count = 0;
+
+    public bool Contains(T item)
+    {
+        for (int i = 0; i < Count; i++)
+            if (array[i].Equals(item))
+                return true;
+        return false;
+    }
+
 
     /* Enumerators */
 
     public IEnumerator<T> GetEnumerator()
     {
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < Count; i++)
             yield return array[i];
     }
 
