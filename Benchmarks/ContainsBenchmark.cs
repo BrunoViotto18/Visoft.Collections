@@ -8,8 +8,8 @@ using MyLINQ;
 [MemoryDiagnoser]
 public class ContainsBenchmark : ListBenchmark
 {
-    public int RandomNumber { get; set; }
-    public bool RandomFlag { get; set; }
+    private int RandomNumber { get; set; }
+    private bool RandomFlag { get; set; }
 
 
     [IterationSetup]
@@ -29,20 +29,20 @@ public class ContainsBenchmark : ListBenchmark
     [IterationCleanup]
     public void IterationCleanup()
     {
-        MyList = new();
-        NormalList = new();
+        MyList = new MyList<int>();
+        NormalList = new List<int>();
     }
 
 
     [Benchmark]
-    public void MyListContains()
+    public bool MyListContains()
     {
-        MyList.Contains(RandomNumber);
+        return MyList.Contains(RandomNumber);
     }
 
     [Benchmark]
-    public void NormalListContains()
+    public bool NormalListContains()
     {
-        NormalList.Contains(RandomNumber);
+        return NormalList.Contains(RandomNumber);
     }
 }

@@ -8,7 +8,7 @@ using Benchmarks;
 using MyLINQ;
 
 
-public class Program
+public static class Program
 {
     static void Main()
     {

@@ -471,7 +471,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BenchmarkDotNet": "0.13.2",
-          "MyLINQ": "1.0.0"
+          "MyGenerics": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Benchmarks.dll": {}
@@ -480,14 +480,14 @@
           "bin/placeholder/Benchmarks.dll": {}
         }
       },
-      "MyLINQ/1.0.0": {
+      "MyGenerics/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/MyLINQ.dll": {}
+          "bin/placeholder/MyGenerics.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MyLINQ.dll": {}
+          "bin/placeholder/MyGenerics.dll": {}
         }
       }
     }
@@ -1267,17 +1267,17 @@
       "path": "../Benchmarks/Benchmarks.csproj",
       "msbuildProject": "../Benchmarks/Benchmarks.csproj"
     },
-    "MyLINQ/1.0.0": {
+    "MyGenerics/1.0.0": {
       "type": "project",
-      "path": "../MyLINQ/MyLINQ.csproj",
-      "msbuildProject": "../MyLINQ/MyLINQ.csproj"
+      "path": "../MyGenerics/MyGenerics.csproj",
+      "msbuildProject": "../MyGenerics/MyGenerics.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BenchmarkDotNet >= 0.13.2",
       "Benchmarks >= 1.0.0",
-      "MyLINQ >= 1.0.0"
+      "MyGenerics >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1315,8 +1315,8 @@
             "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
               "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj"
             },
-            "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj": {
-              "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj"
+            "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+              "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
             }
           }
         }

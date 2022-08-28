@@ -2,8 +2,6 @@
 
 namespace Benchmarks;
 
-using MyLINQ;
-
 
 [MemoryDiagnoser]
 public class IterationBenchmark : ListBenchmark
@@ -11,7 +9,7 @@ public class IterationBenchmark : ListBenchmark
     [GlobalSetup]
     public void GlobalSetup()
     {
-        for (int i = 0; i < ListSize; i++)
+        for (var i = 0; i < ListSize; i++)
         {
             MyList.Add(i);
             NormalList.Add(i);
@@ -20,18 +18,22 @@ public class IterationBenchmark : ListBenchmark
 
 
     [Benchmark]
-    public void MyListIteration()
+    public int MyListIteration()
     {
-        int i;
+        int i = 0;
         foreach (var item in MyList)
-            i = item;
+            i += item;
+        
+        return i;
     }
 
     [Benchmark]
-    public void NormalListIteraiton()
+    public int NormalListIteration()
     {
-        int i;
+        int i = 0;
         foreach (var item in NormalList)
-            i = item;
+            i += item;
+
+        return i;
     }
 }

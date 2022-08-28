@@ -7,16 +7,16 @@ using MyLINQ;
 
 public class ListBenchmark
 {
-    public MyList<int> MyList { get; set; }
-    public List<int> NormalList { get; set; }
+    protected MyList<int> MyList { get; set; }
+    protected List<int> NormalList { get; set; }
 
-    [Params(1000, 10000, 100000, 1000000)]
+    [Params(10000, 100000, 1000000)]
     public int ListSize { get; set; }
 
 
-    public ListBenchmark()
+    protected ListBenchmark()
     {
-        MyList = new();
-        NormalList = new();
+        MyList = new MyList<int>();
+        NormalList = new List<int>();
     }
 }

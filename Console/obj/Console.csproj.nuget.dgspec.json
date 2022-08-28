@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj": {
-                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj"
+              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
               }
             }
           }
@@ -103,8 +103,8 @@
               "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
                 "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj"
               },
-              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj": {
-                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj"
+              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
               }
             }
           }
@@ -143,14 +143,14 @@
         }
       }
     },
-    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj": {
+    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj",
-        "projectName": "MyLINQ",
-        "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\MyLINQ.csproj",
+        "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
+        "projectName": "MyGenerics",
+        "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyLINQ\\obj\\",
+        "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

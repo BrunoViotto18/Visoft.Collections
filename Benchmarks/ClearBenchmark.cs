@@ -2,8 +2,6 @@
 
 namespace Benchmarks;
 
-using MyLINQ;
-
 
 [MemoryDiagnoser]
 public class ClearBenchmark : ListBenchmark
@@ -11,7 +9,7 @@ public class ClearBenchmark : ListBenchmark
     [IterationSetup]
     public void IterationSetup()
     {
-        for (int i = 0; i < ListSize; i++)
+        for (var i = 0; i < ListSize; i++)
         {
             MyList.Add(i);
             NormalList.Add(i);

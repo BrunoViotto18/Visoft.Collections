@@ -160,9 +160,7 @@ C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Management.dll
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\Benchmarks.dll
-C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\MyLINQ.dll
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\Benchmarks.pdb
-C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\MyLINQ.pdb
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\Console.csproj.AssemblyReference.cache
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\Console.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\Console.AssemblyInfoInputs.cache
@@ -174,3 +172,5 @@ C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\Console.pdb
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\Console.genruntimeconfig.cache
 C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\obj\Release\net6.0\ref\Console.dll
+C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\MyGenerics.dll
+C:\Users\bruno\OneDrive\Área de Trabalho\GitHub\MyLINQ\Console\bin\Release\net6.0\MyGenerics.pdb

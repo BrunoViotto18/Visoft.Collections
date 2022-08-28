@@ -5,7 +5,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyLINQ\MyLINQ.csproj" />
+    <ProjectReference Include="..\MyGenerics\MyGenerics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Teste.cs" />
   </ItemGroup>
 
   <PropertyGroup>

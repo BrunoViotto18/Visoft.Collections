@@ -10,7 +10,7 @@
         "dependencies": {
           "BenchmarkDotNet": "0.13.2",
           "Benchmarks": "1.0.0",
-          "MyLINQ": "1.0.0"
+          "MyGenerics": "1.0.0"
         },
         "runtime": {
           "Console.dll": {}
@@ -383,15 +383,15 @@
       "Benchmarks/1.0.0": {
         "dependencies": {
           "BenchmarkDotNet": "0.13.2",
-          "MyLINQ": "1.0.0"
+          "MyGenerics": "1.0.0"
         },
         "runtime": {
           "Benchmarks.dll": {}
         }
       },
-      "MyLINQ/1.0.0": {
+      "MyGenerics/1.0.0": {
         "runtime": {
-          "MyLINQ.dll": {}
+          "MyGenerics.dll": {}
         }
       }
     }
@@ -631,7 +631,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "MyLINQ/1.0.0": {
+    "MyGenerics/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

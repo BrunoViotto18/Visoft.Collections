@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Benchmarks\Benchmarks.csproj" />
-    <ProjectReference Include="..\MyLINQ\MyLINQ.csproj" />
+    <ProjectReference Include="..\MyGenerics\MyGenerics.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
