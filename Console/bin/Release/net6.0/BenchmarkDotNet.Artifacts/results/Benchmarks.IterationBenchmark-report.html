@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmarks.IterationBenchmark-20220828-181400</title>
+<title>Benchmarks.IterationBenchmark-20220829-161744</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,17 +13,23 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.13.2, OS=Windows 11 (10.0.22000.856/21H2)
-AMD Ryzen 5 5500U with Radeon Graphics, 1 CPU, 12 logical and 6 physical cores
-.NET SDK=6.0.303
-  [Host] : .NET 6.0.8 (6.0.822.36306), X64 RyuJIT AVX2
+BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19044.1889/21H2/November2021Update)
+Intel Core i5-7500T CPU 2.70GHz (Kaby Lake), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=6.0.301
+  [Host]     : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>   Method</th><th>ListSize</th><th>Mean</th><th>Error</th>
+<thead><tr><th>       Method</th><th>ListSize</th><th>     Mean</th><th>  Error</th><th> StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>MyListIteration</td><td>1000</td><td>NA</td><td>NA</td>
+</thead><tbody><tr><td>MyListIteration</td><td>10000</td><td>13.41 ns</td><td>0.252 ns</td><td>0.300 ns</td><td>0.0153</td><td>48 B</td>
+</tr><tr><td>NormalListIteration</td><td>10000</td><td>16,541.61 ns</td><td>67.698 ns</td><td>63.324 ns</td><td>-</td><td>-</td>
+</tr><tr><td>MyListIteration</td><td>100000</td><td>13.06 ns</td><td>0.296 ns</td><td>0.277 ns</td><td>0.0153</td><td>48 B</td>
+</tr><tr><td>NormalListIteration</td><td>100000</td><td>165,382.38 ns</td><td>1,600.590 ns</td><td>1,497.193 ns</td><td>-</td><td>-</td>
+</tr><tr><td>MyListIteration</td><td>1000000</td><td>12.93 ns</td><td>0.275 ns</td><td>0.452 ns</td><td>0.0153</td><td>48 B</td>
+</tr><tr><td>NormalListIteration</td><td>1000000</td><td>1,738,110.68 ns</td><td>18,850.404 ns</td><td>17,632.680 ns</td><td>-</td><td>1 B</td>
 </tr></tbody></table>
 </body>
 </html>

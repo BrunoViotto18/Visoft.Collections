@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Console\\Console.csproj": {}
+    "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Console\\Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
+    "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj",
+        "projectUniqueName": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\Benchmarks.csproj",
         "projectName": "Benchmarks",
-        "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\obj\\",
+        "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\Benchmarks.csproj",
+        "packagesPath": "C:\\Users\\sab1ct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\sab1ct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
-                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
+              "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+                "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
               }
             }
           }
@@ -68,25 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Console\\Console.csproj": {
+    "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Console\\Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Console\\Console.csproj",
+        "projectUniqueName": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Console\\Console.csproj",
         "projectName": "Console",
-        "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Console\\Console.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Console\\obj\\",
+        "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Console\\Console.csproj",
+        "packagesPath": "C:\\Users\\sab1ct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Console\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\sab1ct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,11 +92,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
-                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\Benchmarks\\Benchmarks.csproj"
+              "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\Benchmarks.csproj": {
+                "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\Benchmarks\\Benchmarks.csproj"
               },
-              "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
-                "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
+              "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+                "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj"
               }
             }
           }
@@ -139,25 +131,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
+    "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
+        "projectUniqueName": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
         "projectName": "MyGenerics",
-        "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\GitHub\\MyLINQ\\MyGenerics\\obj\\",
+        "projectPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\MyGenerics.csproj",
+        "packagesPath": "C:\\Users\\sab1ct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sab1ct\\Desktop\\Repositórios\\MyLINQ\\MyGenerics\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\sab1ct\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -197,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
