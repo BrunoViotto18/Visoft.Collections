@@ -12,6 +12,8 @@ public static class Program
 {
     static void Main()
     {
-        BenchmarkRunner.Run<IterationBenchmark>();
+        List<int> lines = new List<int>() { 1, 2, 3, 4 };
+        lines.Insert(-1, -1);
+        //BenchmarkRunner.Run<IterationBenchmark>();
     }
 }
