@@ -1,2 +1,0 @@
-// Validating benchmarks:
-Only 1 [IterationSetupAttribute] in a class can have an empty target applied to it, class AddBenchmark has 2
