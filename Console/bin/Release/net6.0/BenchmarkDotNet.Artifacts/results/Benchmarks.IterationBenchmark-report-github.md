@@ -8,11 +8,11 @@ AMD Ryzen 5 5500U with Radeon Graphics, 1 CPU, 12 logical and 6 physical cores
 
 
 ```
-|              Method | ListSize |           Mean |          Error |        StdDev |   Gen0 | Allocated |
-|-------------------- |--------- |---------------:|---------------:|--------------:|-------:|----------:|
-|     **MyListIteration** |    **10000** |       **8.519 ns** |      **0.1247 ns** |     **0.1166 ns** | **0.0229** |      **48 B** |
-| NormalListIteration |    10000 |   8,176.289 ns |     54.6287 ns |    51.0997 ns |      - |         - |
-|     **MyListIteration** |   **100000** |       **8.331 ns** |      **0.0600 ns** |     **0.0561 ns** | **0.0229** |      **48 B** |
-| NormalListIteration |   100000 |  79,948.595 ns |  1,558.9101 ns | 1,301.7605 ns |      - |         - |
-|     **MyListIteration** |  **1000000** |       **8.571 ns** |      **0.1784 ns** |     **0.1582 ns** | **0.0229** |      **48 B** |
-| NormalListIteration |  1000000 | 807,759.540 ns | 10,201.8053 ns | 8,518.9694 ns |      - |         - |
+|              Method | ListSize |         Mean |      Error |     StdDev | Allocated |
+|-------------------- |--------- |-------------:|-----------:|-----------:|----------:|
+|     **MyListIteration** |    **10000** |    **37.792 μs** |  **0.2969 μs** |  **0.2632 μs** |      **40 B** |
+| NormalListIteration |    10000 |     7.501 μs |  0.0353 μs |  0.0294 μs |         - |
+|     **MyListIteration** |   **100000** |   **375.774 μs** |  **4.0459 μs** |  **3.3785 μs** |      **40 B** |
+| NormalListIteration |   100000 |    99.958 μs |  0.5351 μs |  0.4744 μs |         - |
+|     **MyListIteration** |  **1000000** | **3,753.557 μs** | **17.7448 μs** | **13.8540 μs** |      **42 B** |
+| NormalListIteration |  1000000 | 1,037.958 μs |  5.3887 μs |  5.0406 μs |       1 B |
