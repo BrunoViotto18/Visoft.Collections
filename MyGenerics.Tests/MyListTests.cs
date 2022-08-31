@@ -99,7 +99,7 @@ public class MyListTests
         MyList<int> myList = new MyList<int>();
         for (int i = 0; i < 1000; i++)
             myList.Add(i);
-            
+        
         // Act
         void Action() => myList[index] = 0;
 
@@ -108,13 +108,13 @@ public class MyListTests
     }
 
     [Fact]
-    public void MyListEnumerator_ShouldEnumerateCountNumberOfItems()
+    public void MyListEnumerator_ShouldEnumerateItems()
     {
         // Arrange
         MyList<int> myList = new MyList<int>();
         for (var i = 0; i < 1000; i++)
             myList.Add(i);
-        
+
         // Act
         int count = 0;
         foreach (var _ in myList)
@@ -122,6 +122,8 @@ public class MyListTests
 
         // Assert
         Assert.Equal(1000, count);
+        for (var i = 0; i < 1000; i++)
+            Assert.Equal(i, myList[i]);
     }
 
     [Fact]
@@ -163,7 +165,7 @@ public class MyListTests
     }
 
     [Fact]
-    public void Contains_ShouldReturnTrueIfItemExistsInMyList()
+    public void Contains_ShouldReturnTrue_WhenItemExistsInMyList()
     {
         // Arrange
         MyList<int> myList = new MyList<int>();
@@ -178,7 +180,7 @@ public class MyListTests
     }
 
     [Fact]
-    public void Contains_ShouldReturnFalseIfItemDoesNotExistInMyList()
+    public void Contains_ShouldReturnFalse_WhenItemDoesNotExistInMyList()
     {
         // Arrange
         MyList<int> myList = new MyList<int>();
@@ -216,7 +218,23 @@ public class MyListTests
     }
 
     [Fact]
-    public void Remove_ShouldRemoveItemFromMyList_And_ReturnTrue()
+    public void Remove_ShouldRemoveItemFromMyList()
+    {
+        // Arrange
+        MyList<int> myList = new MyList<int>();
+        for (var i = 0; i < 1000; i++)
+            myList.Add(i);
+        
+        // Act
+        myList.Remove(500);
+        
+        // Assert
+        Assert.Equal(999, myList.Count);
+        Assert.NotEqual(500, myList[500]);
+    }
+
+    [Fact]
+    public void Remove_ShouldReturnTrue_WhenItemExistsInMyList()
     {
         // Arrange
         MyList<int> myList = new MyList<int>();
@@ -227,8 +245,6 @@ public class MyListTests
         var result = myList.Remove(500);
         
         // Assert
-        Assert.Equal(999, myList.Count);
-        Assert.NotEqual(500, myList[500]);
         Assert.True(result);
     }
 
