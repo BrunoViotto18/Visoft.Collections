@@ -3,7 +3,7 @@
 namespace MyLINQ;
 
 
-public struct MyList<T> : IList<T>
+public class MyList<T> : IList<T>
 {
     private T[] Array { get; set; }
     public int Count { get; private set; }
