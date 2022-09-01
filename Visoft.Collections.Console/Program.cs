@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-namespace Visoft.Console;
+namespace Visoft.Collections.Console;
 
 using Collections.Benchmarks.FList;
 using Visoft.Collections;

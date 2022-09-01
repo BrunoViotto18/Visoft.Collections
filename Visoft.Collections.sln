@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Collections", "Visoft.Collections\Visoft.Collections.csproj", "{C2DC811B-344C-4ACB-9F72-CF18189BF23A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Console", "Visoft.Console\Visoft.Console.csproj", "{44D59D78-6815-44D9-A2D7-63068319287A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Collections.Console", "Visoft.Collections.Console\Visoft.Collections.Console.csproj", "{44D59D78-6815-44D9-A2D7-63068319287A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Collections.Benchmarks.FList", "Visoft.Collections.Benchmarks.FList\Visoft.Collections.Benchmarks.FList.csproj", "{4F6003AF-E245-4FC6-9283-DC854A96A0A9}"
 EndProject
