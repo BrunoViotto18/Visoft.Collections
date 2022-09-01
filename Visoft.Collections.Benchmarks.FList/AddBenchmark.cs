@@ -1,26 +1,26 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks;
+namespace Visoft.Collections.Benchmarks.FList;
 
-using MyLINQ;
+using Visoft.Collections;
 
 
 [MemoryDiagnoser]
-public class AddBenchmark : ListBenchmark
+public class AddBenchmark : FListBenchmark
 {
     [IterationCleanup]
     public void IterationCleanup()
     {
-        MyList = new MyList<int>();
+        FastList = new FList<int>();
         NormalList = new List<int>();
     }
 
 
     [Benchmark]
-    public void MyListAdd()
+    public void FastListAdd()
     {
         for (var i = 0; i < ListSize; i++)
-            MyList.Add(i);
+            FastList.Add(i);
     }
 
     [Benchmark]

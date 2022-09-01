@@ -1,60 +1,60 @@
 using System.Collections;
 
-namespace MyGenerics.Tests;
+namespace Visoft.Collections.Tests;
 
 
-public class MyListTests
+public class FListTests
 {
     [Fact]
-    public void Constructor_ShouldInitializeMyList_WhenProvidedAnArray()
+    public void Constructor_ShouldInitializeFList_WhenProvidedAnArray()
     {
         // Arrange
-        MyList<int> myList;
+        FList<int> fList;
 
         // Act
-        myList = new MyList<int>(new int[] { 1, 2, 3 });
+        fList = new FList<int>(new int[] { 1, 2, 3 });
 
         // Assert
-        Assert.Equal(3, myList.Count);
+        Assert.Equal(3, fList.Count);
     }
     
     [Fact]
     public void Add_ShouldAddItem()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         
         // Act
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Assert
-        for (var i = 0; i < myList.Count; i++)
-            Assert.Equal(i, myList[i]);
+        for (var i = 0; i < fList.Count; i++)
+            Assert.Equal(i, fList[i]);
     }
     
     [Fact]
     public void Add_ShouldIncrementCount()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
 
         // Act
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
 
         // Assert
-        Assert.Equal(1000, myList.Count);
+        Assert.Equal(1000, fList.Count);
     }
 
     [Fact]
-    public void MyListGet_ShouldRetrieveItem_WhenValidIndex()
+    public void FListGet_ShouldRetrieveItem_WhenValidIndex()
     {
         // Arrange
-        MyList<int> myList = new MyList<int> { 1 };
+        FList<int> fList = new FList<int> { 1 };
 
         // Act
-        int result = myList[0];
+        int result = fList[0];
 
         // Assert
         Assert.Equal(1, result);
@@ -63,79 +63,79 @@ public class MyListTests
     [Theory]
     [InlineData(-1)]
     [InlineData(1001)]
-    public void MyListGet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
+    public void FListGet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (int i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
 
         // Act
-        object Function() => myList[index];
+        object Function() => fList[index];
 
         // Assert
         Assert.Throws<IndexOutOfRangeException>((Func<object>)Function);
     }
 
     [Fact]
-    public void MyListSet_ShouldSetItem_WhenValidIndex()
+    public void FListSet_ShouldSetItem_WhenValidIndex()
     {
         // Arrange
-        MyList<int> myList = new MyList<int> { 1 };
+        FList<int> fList = new FList<int> { 1 };
 
         // Act
-        myList[0] = 2;
+        fList[0] = 2;
         
         // Assert
-        Assert.Equal(2, myList[0]);
+        Assert.Equal(2, fList[0]);
     }
 
     [Theory]
     [InlineData(-1)]
     [InlineData(1001)]
-    public void MyListSet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
+    public void FListSet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (int i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        void Action() => myList[index] = 0;
+        void Action() => fList[index] = 0;
 
         // Assert
         Assert.Throws<IndexOutOfRangeException>((Action)Action);
     }
 
     [Fact]
-    public void MyListEnumerator_ShouldEnumerateItems()
+    public void FListEnumerator_ShouldEnumerateItems()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
 
         // Act
         int count = 0;
-        foreach (var _ in myList)
+        foreach (var _ in fList)
             count++;
 
         // Assert
         Assert.Equal(1000, count);
         for (var i = 0; i < 1000; i++)
-            Assert.Equal(i, myList[i]);
+            Assert.Equal(i, fList[i]);
     }
 
     [Fact]
-    public void MyListGetEnumerator_ShouldEnumerateWithIEnumerableGetEnumerator()
+    public void FListGetEnumerator_ShouldEnumerate_WithIEnumerableGetEnumerator()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        var count = TestGetEnumeratorHelperMethod(myList);
+        var count = TestGetEnumeratorHelperMethod(fList);
 
         // Assert
         Assert.Equal(1000, count);
@@ -150,45 +150,45 @@ public class MyListTests
     }
 
     [Fact]
-    public void Clear_ShouldClearMyList()
+    public void Clear_ShouldClearFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        myList.Clear();
+        fList.Clear();
         
         // Assert
-        Assert.Equal(0, myList.Count);
+        Assert.Equal(0, fList.Count);
     }
 
     [Fact]
-    public void Contains_ShouldReturnTrue_WhenItemExistsInMyList()
+    public void Contains_ShouldReturnTrue_WhenItemExistsInFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        var result = myList.Contains(500);
+        var result = fList.Contains(500);
 
         // Assert
         Assert.True(result);
     }
 
     [Fact]
-    public void Contains_ShouldReturnFalse_WhenItemDoesNotExistInMyList()
+    public void Contains_ShouldReturnFalse_WhenItemDoesNotExistInFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
 
         // Act
-        var result = myList.Contains(-1);
+        var result = fList.Contains(-1);
 
         // Assert
         Assert.False(result);
@@ -197,11 +197,11 @@ public class MyListTests
     [Theory]
     [InlineData(0)]
     [InlineData(500)]
-    public void CopyTo_ShouldCopyMyListToAnArray(int index)
+    public void CopyTo_ShouldCopyFListToAnArray(int index)
     {
         // Arrange
         var array = new int[1000];
-        var myList = new MyList<int>();
+        var myList = new FList<int>();
         for (var i = 0; i < 1000; i++)
         {
             if (i < 100)
@@ -218,66 +218,66 @@ public class MyListTests
     }
 
     [Fact]
-    public void Remove_ShouldRemoveItemFromMyList()
+    public void Remove_ShouldRemoveItemFromFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        myList.Remove(500);
+        fList.Remove(500);
         
         // Assert
-        Assert.Equal(999, myList.Count);
-        Assert.NotEqual(500, myList[500]);
+        Assert.Equal(999, fList.Count);
+        Assert.NotEqual(500, fList[500]);
     }
 
     [Fact]
-    public void Remove_ShouldReturnTrue_WhenItemExistsInMyList()
+    public void Remove_ShouldReturnTrue_WhenItemExistsInFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        var result = myList.Remove(500);
+        var result = fList.Remove(500);
         
         // Assert
         Assert.True(result);
     }
 
     [Fact]
-    public void Remove_ShouldReturnFalse_WhenItemDoesNotExistInMyList()
+    public void Remove_ShouldReturnFalse_WhenItemDoesNotExistInFList()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        var result = myList.Remove(-1);
+        var result = fList.Remove(-1);
         
         // Assert
-        Assert.Equal(1000, myList.Count);
+        Assert.Equal(1000, fList.Count);
         Assert.False(result);
     }
 
     [Fact]
-    public void RemoveAt_ShouldRemoveItemFromMyListAtSpecifiedIndex()
+    public void RemoveAt_ShouldRemoveItemAtSpecifiedIndex()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
             
         // Act
-        myList.RemoveAt(500);
+        fList.RemoveAt(500);
         
         // Assert
-        Assert.False(myList.Contains(500));
-        Assert.Equal(999, myList.Count);
+        Assert.False(fList.Contains(500));
+        Assert.Equal(999, fList.Count);
     }
 
     [Theory]
@@ -286,12 +286,12 @@ public class MyListTests
     public void RemoveAt_ShouldThrowArgumentOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        void Action() => myList.RemoveAt(index);
+        void Action() => fList.RemoveAt(index);
         
         // Assert
         Assert.Throws<ArgumentOutOfRangeException>(Action);
@@ -304,12 +304,12 @@ public class MyListTests
     public void IndexOf_ShouldReturnIndexOfSpecifiedItem(int item, int expected)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (int i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        int index = myList.IndexOf(item);
+        int index = fList.IndexOf(item);
         
         // Assert
         Assert.Equal(expected, index);
@@ -322,16 +322,16 @@ public class MyListTests
     public void Insert_ShouldInsertItemAtSpecifiedIndex(int index)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (int i = 0; i < 1280; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        myList.Insert(index, -1);
+        fList.Insert(index, -1);
         
         // Assert
-        Assert.Equal(1281, myList.Count);
-        Assert.Equal(-1, myList[index]);
+        Assert.Equal(1281, fList.Count);
+        Assert.Equal(-1, fList[index]);
     }
 
     [Theory]
@@ -340,12 +340,12 @@ public class MyListTests
     public void Insert_ShouldThrowArgumentOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (int i = 0; i < 1000; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        void Action() => myList.Insert(index, -1);
+        void Action() => fList.Insert(index, -1);
 
         // Assert
         Assert.Throws<ArgumentOutOfRangeException>(Action);
@@ -355,10 +355,10 @@ public class MyListTests
     public void IsReadOnly_ShouldReturnFalse()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         
         // Act
-        var result = myList.IsReadOnly;
+        var result = fList.IsReadOnly;
 
         // Assert
         Assert.False(result);
@@ -368,12 +368,12 @@ public class MyListTests
     public void ToString_ShouldReturnFormattedString()
     {
         // Arrange
-        MyList<int> myList = new MyList<int>();
+        FList<int> fList = new FList<int>();
         for (var i = 1; i <= 10; i++)
-            myList.Add(i);
+            fList.Add(i);
         
         // Act
-        var result = myList.ToString();
+        var result = fList.ToString();
         
         // Assert
         Assert.Equal("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]", result);

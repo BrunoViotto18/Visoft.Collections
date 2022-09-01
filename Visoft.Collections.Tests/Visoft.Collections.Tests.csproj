@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MyGenerics\MyGenerics.csproj" />
+      <ProjectReference Include="..\Visoft.Collections\Visoft.Collections.csproj" />
     </ItemGroup>
 
 </Project>

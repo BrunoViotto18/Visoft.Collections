@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 
-namespace MyLINQ;
+namespace Visoft.Collections;
 
-
-public class MyList<T> : IList<T>
+public class FList<T> : IList<T>
 {
     private T[] Array { get; set; }
     public int Count { get; private set; }
@@ -28,13 +27,13 @@ public class MyList<T> : IList<T>
 
     /* Construtores */
 
-    public MyList()
+    public FList()
     {
         Array = new T[10];
         Count = 0;
     }
 
-    public MyList(params T[] array)
+    public FList(params T[] array)
     {
         this.Array = array;
         Count = array.Length;

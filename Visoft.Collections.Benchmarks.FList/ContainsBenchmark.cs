@@ -1,12 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks;
+namespace Visoft.Collections.Benchmarks.FList;
 
-using MyLINQ;
+using Visoft.Collections;
 
 
 [MemoryDiagnoser]
-public class ContainsBenchmark : ListBenchmark
+public class ContainsBenchmark : FListBenchmark
 {
     private int RandomNumber { get; set; }
     private bool RandomFlag { get; set; }
@@ -17,7 +17,7 @@ public class ContainsBenchmark : ListBenchmark
     {
         for (int i = 0; i < ListSize; i++)
         {
-            MyList.Add(i);
+            FastList.Add(i);
             NormalList.Add(i);
         }
 
@@ -29,15 +29,15 @@ public class ContainsBenchmark : ListBenchmark
     [IterationCleanup]
     public void IterationCleanup()
     {
-        MyList = new MyList<int>();
+        FastList = new FList<int>();
         NormalList = new List<int>();
     }
 
 
     [Benchmark]
-    public bool MyListContains()
+    public bool FastListContains()
     {
-        return MyList.Contains(RandomNumber);
+        return FastList.Contains(RandomNumber);
     }
 
     [Benchmark]
