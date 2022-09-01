@@ -1,22 +1,22 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks;
+namespace Visoft.Collections.Benchmarks.FList;
 
-using MyLINQ;
+using Visoft.Collections;
 
 
-public class ListBenchmark
+public class FListBenchmark
 {
-    protected MyList<int> MyList { get; set; }
+    protected FList<int> FastList { get; set; }
     protected List<int> NormalList { get; set; }
 
     [Params(10000, 100000, 1000000)]
     public int ListSize { get; set; }
 
 
-    protected ListBenchmark()
+    protected FListBenchmark()
     {
-        MyList = new MyList<int>();
+        FastList = new FList<int>();
         NormalList = new List<int>();
     }
 }

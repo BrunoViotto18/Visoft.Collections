@@ -1,26 +1,26 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks;
+namespace Visoft.Collections.Benchmarks.FList;
 
 
 [MemoryDiagnoser]
-public class ClearBenchmark : ListBenchmark
+public class ClearBenchmark : FListBenchmark
 {
     [IterationSetup]
     public void IterationSetup()
     {
         for (var i = 0; i < ListSize; i++)
         {
-            MyList.Add(i);
+            FastList.Add(i);
             NormalList.Add(i);
         }
     }
 
 
     [Benchmark]
-    public void MyListClear()
+    public void FastListClear()
     {
-        MyList.Clear();
+        FastList.Clear();
     }
 
     [Benchmark]

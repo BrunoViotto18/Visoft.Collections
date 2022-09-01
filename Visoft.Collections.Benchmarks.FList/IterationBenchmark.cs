@@ -1,27 +1,27 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks;
+namespace Visoft.Collections.Benchmarks.FList;
 
 
 [MemoryDiagnoser]
-public class IterationBenchmark : ListBenchmark
+public class IterationBenchmark : FListBenchmark
 {
     [GlobalSetup]
     public void GlobalSetup()
     {
         for (var i = 0; i < ListSize; i++)
         {
-            MyList.Add(i);
+            FastList.Add(i);
             NormalList.Add(i);
         }
     }
 
 
     [Benchmark]
-    public int MyListIteration()
+    public int FastListIteration()
     {
         int i = 0;
-        foreach (var item in MyList)
+        foreach (var item in FastList)
             i += item;
         
         return i;

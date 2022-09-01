@@ -5,7 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyGenerics\MyGenerics.csproj" />
+    <ProjectReference Include="..\Visoft.Collections\Visoft.Collections.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +16,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>Visoft.Collections.Benchmarks.FList</AssemblyName>
+    <RootNamespace>Visoft.Collections.Benchmarks.FList</RootNamespace>
   </PropertyGroup>
 
 </Project>
