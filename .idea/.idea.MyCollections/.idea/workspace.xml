@@ -4,34 +4,7 @@
     <projectFile>Console/Console.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec550a9-4385-493f-8090-8c8b40e133e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MyCollections/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Visoft.MyCollections/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Visoft.Collections.Tests/Usings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/dictionaries/bruno.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/dictionaries/bruno.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyLINQ/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/AddBenchmark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/AddBenchmark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/Benchmarks.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/Visoft.Collections.Benchmarks.FList.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/ClearBenchmark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/ClearBenchmark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/ContainsBenchmark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/ContainsBenchmark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/IterationBenchmark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/IterationBenchmark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/ListBenchmark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/FListBenchmark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchmarks/Teste.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/Teste.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Console/Console.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Console/Visoft.Console.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Console/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Console/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics.Tests/MyGenerics.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Tests/Visoft.Collections.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics.Tests/MyListTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.Tests/FListTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics.Tests/Usings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics/MyGenerics.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections/Visoft.Collections.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics/MyList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections/FList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyGenerics/Teste.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections/Teste.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyLINQ.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Visoft.Collections.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyLINQ.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/MyLINQ.sln.DotSettings.user" afterDir="false" />
-    </list>
+    <list default="true" id="0ec550a9-4385-493f-8090-8c8b40e133e4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,11 +17,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c2f397d0bebd4479855cf7a1e91bfd3438ad36842e94844d33563669bd29f/Queue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c6ad457575d35dcbff26c9a5e3fb1d92f1d3c55f25ef6ebf475367b5d8/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ca97379674cc5fe7a8d99a172fcf4efc31e862a47ebb511af0616d17360f5a6/DictionaryBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/FListBenchmark.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Visoft.Collections.Benchmarks.FList/obj/Debug/net6.0/Visoft.Collections.Benchmarks.MyList.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Visoft.Collections.Tests/FListTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Visoft.Collections/FList.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Visoft.Console/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,7 +56,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Visoft.Console/Visoft.Console.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Visoft.Collections.Console/Visoft.Collections.Console.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -111,7 +80,7 @@
       <workItem from="1661811072844" duration="4414000" />
       <workItem from="1661901569748" duration="7614000" />
       <workItem from="1661981845526" duration="4111000" />
-      <workItem from="1661989587277" duration="3952000" />
+      <workItem from="1661989587277" duration="5745000" />
     </task>
     <servers />
   </component>
@@ -124,12 +93,7 @@
     <option name="sortedColumn" value="1" />
     <option name="symbolColumnWidth" value="75" />
     <coverage-tree-state>
-      <expand>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 451/451" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </coverage-tree-state>
   </component>
