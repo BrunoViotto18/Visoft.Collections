@@ -10,6 +10,10 @@
 
   <ItemGroup>
     <Compile Remove="Teste.cs" />
+    <Compile Remove="FEnumerable.cs" />
+    <Compile Remove="Enumerator.cs" />
+    <Compile Remove="IFEnumerator.cs" />
+    <Compile Remove="Test.cs" />
   </ItemGroup>
 
 </Project>

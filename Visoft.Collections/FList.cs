@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System.Buffers;
 
 namespace Visoft.Collections;
 
-public class FList<T> : IList<T>
+using Visoft.Collections.Interfaces;
+
+public class FList<T> : IFList<T>
 {
     private T[] Array { get; set; }
     public int Count { get; private set; }
@@ -35,7 +37,7 @@ public class FList<T> : IList<T>
 
     public FList(params T[] array)
     {
-        this.Array = array;
+        Array = array;
         Count = array.Length;
     }
 
@@ -126,17 +128,14 @@ public class FList<T> : IList<T>
     }
 
 
-    /* Enumerators */
+    /* Enumerator */
 
     public IEnumerator<T> GetEnumerator()
     {
         for (int i = 0; i < Count; i++)
             yield return Array[i];
     }
-
-    IEnumerator IEnumerable.GetEnumerator()
-        => GetEnumerator();
-
+    
 
     /* Override Methods */
 

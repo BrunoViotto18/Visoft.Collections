@@ -2,10 +2,6 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
-using Visoft.Collections;
-
-
-[MemoryDiagnoser]
 public class ContainsBenchmark : FListBenchmark
 {
     private int RandomNumber { get; set; }

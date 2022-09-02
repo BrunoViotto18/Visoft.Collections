@@ -1,8 +1,6 @@
-using System.Collections;
 using Xunit;
 
 namespace Visoft.Collections.Tests;
-
 
 public class FListTests
 {
@@ -52,7 +50,7 @@ public class FListTests
     public void FListGet_ShouldRetrieveItem_WhenValidIndex()
     {
         // Arrange
-        FList<int> fList = new FList<int> { 1 };
+        FList<int> fList = new FList<int>( 1);
 
         // Act
         int result = fList[0];
@@ -82,7 +80,7 @@ public class FListTests
     public void FListSet_ShouldSetItem_WhenValidIndex()
     {
         // Arrange
-        FList<int> fList = new FList<int> { 1 };
+        FList<int> fList = new FList<int>(1);
 
         // Act
         fList[0] = 2;
@@ -141,7 +139,7 @@ public class FListTests
         // Assert
         Assert.Equal(1000, count);
 
-        int TestGetEnumeratorHelperMethod(IEnumerable enumerator)
+        int TestGetEnumeratorHelperMethod<T>(FList<T> enumerator)
         {
             var counter = 0;
             foreach (var _ in enumerator)

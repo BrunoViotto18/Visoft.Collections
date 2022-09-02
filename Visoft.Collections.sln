@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Collections.Console"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visoft.Collections.Benchmarks.FList", "Visoft.Collections.Benchmarks.FList\Visoft.Collections.Benchmarks.FList.csproj", "{4F6003AF-E245-4FC6-9283-DC854A96A0A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FA32F4C8-7A66-4C7D-BF1B-C8C3D8F83CA0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visoft.Collections.Tests", "Visoft.Collections.Tests\Visoft.Collections.Tests.csproj", "{40EF159F-1DAC-450C-88FD-A450993745CE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{CC2DD55F-4842-4535-81D3-1A9C4FCA22B7}"
@@ -42,7 +40,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{40EF159F-1DAC-450C-88FD-A450993745CE} = {FA32F4C8-7A66-4C7D-BF1B-C8C3D8F83CA0}
 		{4F6003AF-E245-4FC6-9283-DC854A96A0A9} = {CC2DD55F-4842-4535-81D3-1A9C4FCA22B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

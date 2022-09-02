@@ -2,9 +2,7 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
-using Visoft.Collections;
-
-
+[MemoryDiagnoser]
 public class FListBenchmark
 {
     protected FList<int> FastList { get; set; }

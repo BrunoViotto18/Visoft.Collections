@@ -2,8 +2,6 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
-
-[MemoryDiagnoser]
 public class ClearBenchmark : FListBenchmark
 {
     [IterationSetup]

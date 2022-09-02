@@ -2,10 +2,6 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
-using Visoft.Collections;
-
-
-[MemoryDiagnoser]
 public class AddBenchmark : FListBenchmark
 {
     [IterationCleanup]
