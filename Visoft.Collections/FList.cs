@@ -1,12 +1,10 @@
-﻿using System.Buffers;
+﻿namespace Visoft.Collections;
 
-namespace Visoft.Collections;
-
-using Visoft.Collections.Interfaces;
+using Interfaces;
 
 public class FList<T> : IFList<T>
 {
-    private T[] Array { get; set; }
+    private T[] _array;
     public int Count { get; private set; }
     public bool IsReadOnly => false;
 
@@ -16,13 +14,13 @@ public class FList<T> : IFList<T>
         {
             if (index >= Count)
                 throw new IndexOutOfRangeException();
-            return Array[index];
+            return _array[index];
         }
         set
         {
             if (index >= Count)
                 throw new IndexOutOfRangeException();
-            Array[index] = value;
+            _array[index] = value;
         }
     }
 
@@ -31,13 +29,13 @@ public class FList<T> : IFList<T>
 
     public FList()
     {
-        Array = new T[10];
+        _array = new T[10];
         Count = 0;
     }
 
     public FList(params T[] array)
     {
-        Array = array;
+        _array = array;
         Count = array.Length;
     }
 
@@ -46,13 +44,13 @@ public class FList<T> : IFList<T>
 
     public void Add(T item)
     {
-        if (Array.Length <= Count)
+        if (_array.Length <= Count)
         {
-            var a = new T[Array.Length * 2];
-            Array.CopyTo(a, 0);
-            Array = a;
+            var array = new T[_array.Length * 2];
+            Array.Copy(_array, array, Count);
+            _array = array;
         }
-        Array[Count++] = item;
+        _array[Count++] = item;
     }
 
     public void Clear()
@@ -61,7 +59,7 @@ public class FList<T> : IFList<T>
     public bool Contains(T item)
     {
         for (int i = 0; i < Count; i++)
-            if (Equals(Array[i], item))
+            if (Equals(_array[i], item))
                 return true;
         return false;
     }
@@ -69,14 +67,14 @@ public class FList<T> : IFList<T>
     public void CopyTo(T[] array, int arrayIndex)
     {
         for (int i = 0; i < Count; i++)
-            array[i + arrayIndex] = Array[i];
+            array[i + arrayIndex] = _array[i];
     }
     
     public bool Remove(T item)
     {
         int index = -1;
         for (int i = 0; i < Count; i++)
-            if (Equals(Array[i], item))
+            if (Equals(_array[i], item))
             {
                 index = i;
                 break;
@@ -86,7 +84,7 @@ public class FList<T> : IFList<T>
             return false;
         
         for (int i = index; i < Count - 1; i++)
-            Array[i] = Array[i + 1];
+            _array[i] = _array[i + 1];
         Count--;
         return true;
     }
@@ -97,14 +95,14 @@ public class FList<T> : IFList<T>
             throw new ArgumentOutOfRangeException(nameof(index));
             
         for (int i = index; i < Count - 1; i++)
-            Array[i] = Array[i + 1];
+            _array[i] = _array[i + 1];
         Count--;
     }
 
     public int IndexOf(T item)
     {
         for (int i = 0; i < Count; i++)
-            if (Equals(Array[i], item))
+            if (Equals(_array[i], item))
                 return i;
         return -1;
     }
@@ -114,18 +112,24 @@ public class FList<T> : IFList<T>
         if (index < 0 || index > Count)
             throw new ArgumentOutOfRangeException(nameof(index));
 
-        if (Count == Array.Length)
+        if (Count == _array.Length)
         {
-            T[] a = new T[Array.Length * 2];
-            Array.CopyTo(a, 0);
-            Array = a;
+            T[] a = new T[_array.Length * 2];
+            _array.CopyTo(a, 0);
+            _array = a;
         }
         
         for (int i = Count; i > index; i--)
-            Array[i] = Array[i - 1];
-        Array[index] = item;
+            _array[i] = _array[i - 1];
+        _array[index] = item;
         Count++;
     }
+
+
+    /* Override Methods */
+
+    public override string ToString()
+        => $"[{String.Join(", ", _array.Take(Count))}]";
 
 
     /* Enumerator */
@@ -133,12 +137,6 @@ public class FList<T> : IFList<T>
     public IEnumerator<T> GetEnumerator()
     {
         for (int i = 0; i < Count; i++)
-            yield return Array[i];
+            yield return _array[i];
     }
-    
-
-    /* Override Methods */
-
-    public override string ToString()
-        => $"[{String.Join(", ", Array.Take(Count))}]";
 }

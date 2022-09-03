@@ -18,40 +18,40 @@ public class IterationBenchmark : FListBenchmark
     [Benchmark]
     public int NormalListForLoop()
     {
-        int i = 0;
-        for (var j = 0; j < NormalList.Count; j++)
-            i += NormalList[j];
+        int count = 0;
+        for (var i = 0; i < NormalList.Count; i++)
+            count++;
 
-        return i;
+        return count;
     }
 
     [Benchmark]
     public int NormalListForeach()
     {
-        int i = 0;
-        foreach (var item in NormalList)
-            i += item;
+        int count = 0;
+        foreach (var _ in NormalList)
+            count++;
 
-        return i;
+        return count;
     }
     
     [Benchmark]
     public int FastListForLoop()
     {
-        int i = 0;
-        for (var j = 0; j < FastList.Count; j++)
-            i += FastList[j];
+        int count = 0;
+        for (var i = 0; i < FastList.Count; i++)
+            count++;
         
-        return i;
+        return count;
     }
     
     [Benchmark]
     public int FastListForeach()
     {
-        int i = 0;
-        foreach (var item in FastList)
-            i += item;
+        int count = 0;
+        foreach (var _ in FastList)
+            count++;
         
-        return i;
+        return count;
     }
 }
