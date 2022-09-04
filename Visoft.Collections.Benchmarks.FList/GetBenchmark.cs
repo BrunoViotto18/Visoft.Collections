@@ -2,7 +2,7 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
-public class GetSetBenchmark : FListBenchmark
+public class GetBenchmark : FListBenchmark
 {
     [GlobalSetup]
     public void GlobalSetup()
@@ -13,7 +13,7 @@ public class GetSetBenchmark : FListBenchmark
             NormalList.Add(i);
         }
     }
-
+    
     
     [Benchmark]
     public int NormalListGet()
@@ -25,27 +25,11 @@ public class GetSetBenchmark : FListBenchmark
     }
     
     [Benchmark]
-    public void NormalListSet()
-    {
-        int temp = 0;
-        for (var i = 0; i < ListSize; i++)
-            NormalList[i] = temp;
-    }
-    
-    [Benchmark]
     public int FastListGet()
     {
         int temp = 0;
         for (var i = 0; i < ListSize; i++)
             temp = FastList[i];
         return temp;
-    }
-    
-    [Benchmark]
-    public void FastListSet()
-    {
-        int temp = 0;
-        for (var i = 0; i < ListSize; i++)
-            FastList[i] = temp;
     }
 }

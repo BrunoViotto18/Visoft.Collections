@@ -47,7 +47,9 @@ public class FList<T> : IFList<T>
         if (_array.Length <= Count)
         {
             var array = new T[_array.Length * 2];
-            Array.Copy(_array, array, Count);
+            for (int i = 0; i < Count; i++)
+                array[i] = _array[i];
+            //Array.Copy(_array, array, Count);
             _array = array;
         }
         _array[Count++] = item;
