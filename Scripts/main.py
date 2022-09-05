@@ -80,9 +80,8 @@ def group_by_argument(d: pd.DataFrame, column_name: str) -> dict[str, pd.DataFra
     return group
 
 
-def remove_comparison_prefix(df: pd.DataFrame, prefix: str) -> str:
-    print(df)
-    return df['Method'].apply(lambda x: x[len(prefix):])
+def remove_comparison_prefix(value: str, prefix: str) -> str:
+    return value[len(prefix):]
 
 
 def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -> dict[str, pd.DataFrame]:
@@ -91,7 +90,7 @@ def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -
 
     for p in range(len(prefixes)):
         prefix[prefixes[p]] = df.iloc[int(p * len(df) / len(prefixes)):int((p+1) * len(df) / len(prefixes)), :]
-        prefix[prefixes[p]] = prefix[prefixes[p]]\
+        prefix[prefixes[p]][column_name] = prefix[prefixes[p]][column_name]\
             .apply(lambda x: remove_comparison_prefix(x, prefixes[p]))
 
     return prefix
@@ -107,9 +106,10 @@ def main() -> None:
     all_data = pd.concat(data.values())
     all_data = all_data.assign(Mean_ns=add_formatted_time_scale_column).sort_values(by='Mean_ns', ascending=False)
 
-    print(compare_dataframe(all_data, 'Method', ['FastList', 'NormalList']))
+    group = compare_dataframe(all_data, 'Method', ['FastList', 'NormalList'])
 
-    # group = group_by_argument(all_data, 'ListSize')
+    for k, v in group.items():
+        print(f'\n{k}:\n{v}\n')
 
 
 if __name__ == '__main__':
