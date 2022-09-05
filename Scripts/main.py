@@ -80,6 +80,7 @@ def group_by_argument(d: pd.DataFrame, column_name: str) -> dict[str, pd.DataFra
     return group
 
 
+# Remove um prefixo de uma String
 def remove_comparison_prefix(value: str, prefix: str) -> str:
     return value[len(prefix):]
 
@@ -93,7 +94,12 @@ def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -
         prefix[prefixes[p]][column_name] = prefix[prefixes[p]][column_name]\
             .apply(lambda x: remove_comparison_prefix(x, prefixes[p]))
 
-    return prefix
+    print(prefix[prefixes[0]])
+    d = {'Method': [], 'ListSize': [], f'Mean {prefixes[0]}': [], f'Mean {prefixes[1]}': [], 'Mean %': [], 'Error %': [], 'StdDev %': [], f'Allocated {prefixes[0]}': [], f'Allocated {prefixes[1]}': [], 'Allocated %': []}
+    for i in range(len(prefix[prefixes[0]])):
+        d['Method'].append(prefix[prefixes[0]].loc[i, 'Method'])
+    
+    print(d)
 
 
 def main() -> None:
