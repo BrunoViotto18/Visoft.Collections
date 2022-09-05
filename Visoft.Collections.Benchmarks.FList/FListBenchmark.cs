@@ -3,6 +3,7 @@
 namespace Visoft.Collections.Benchmarks.FList;
 
 [MemoryDiagnoser]
+[RankColumn]
 public class FListBenchmark
 {
     protected FList<int> FastList { get; set; }

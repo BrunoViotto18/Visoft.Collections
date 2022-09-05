@@ -8,6 +8,6 @@ public static class Program
 {
     static void Main()
     {
-        BenchmarkRunner.Run<GetBenchmark>();
+        BenchmarkRunner.Run<IterationBenchmark>();
     }
 }
