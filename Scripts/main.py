@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import math
 import os
 
@@ -22,7 +23,8 @@ def get_logs_path(root: str, project: str, path: str) -> str:
 def get_directory_csvs(directory_path: str) -> list[str]:
     directories = []
     for file in os.listdir(directory_path):
-        if '.csv' == file[len(file)-4:]:
+        file_extension = file.split('.')[-1]
+        if file_extension == 'csv':
             directories.append(file)
     return directories
 
@@ -56,19 +58,62 @@ def format_number(number: str) -> str:
 def format_time_scale(value: str) -> float:
     time_units = {'ps': -3, 'ns': 0, 'μs': 3, 'ms': 6, 's': 9}
 
-    numeric_value = value[:len(value) - 3]
-    time_scale = value[len(value) - 3:].strip()
+    numeric_value, time_scale = value.split(' ')
+    number = float(format_number(numeric_value))
     exponent = time_units[time_scale]
 
-    number = float(format_number(numeric_value))
-    nanoseconds = math.pow(10, exponent) * number
+    nanosecond = math.pow(10, exponent) * number
+    return nanosecond
 
-    return nanoseconds
+
+# Dado um valor de memória no formato '{numero} {unidade_de_memória}'
+# Retorna um int que representa o mesmo valor em Bytes
+def format_memory_scale(value: str) -> int:
+    memory_units = {'B': 0, 'KB': 10, 'MB': 20}
+
+    numeric_value, memory_scale = value.split(' ')
+    number = float(format_number(numeric_value))
+    exponent = memory_units[memory_scale]
+
+    byte = int(math.pow(2, exponent) * number)
+    return byte
 
 
 # Função de mapa para a criação de uma coluna em um DataFrame
 def add_formatted_time_scale_column(df: pd.DataFrame) -> pd.DataFrame:
     return df['Mean'].apply(format_time_scale)
+
+
+# Remove o prefixo de uma String
+def remove_prefix(value: str, prefix: str) -> str:
+    return value[len(prefix):]
+
+
+# Ao receber um DataFrame, retorna um DataFrame relatório
+# Sobre os dados do DataFrame provido (Method, ListSize, Mean, Allocated)
+def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -> pd.DataFrame:
+    prefix: dict[str, pd.DataFrame] = {}
+    df = df.sort_values(by=column_name)
+
+    for p in range(2):
+        prefix[prefixes[p]] = df.iloc[int(p * len(df) / len(prefixes)):int((p+1) * len(df) / len(prefixes)), :]
+        prefix[prefixes[p]][column_name] = prefix[prefixes[p]][column_name]\
+            .apply(lambda x: remove_prefix(x, prefixes[p]))
+        prefix[prefixes[p]]['Allocated'] = prefix[prefixes[p]]['Allocated']\
+            .apply(format_memory_scale)
+
+    d = {}
+    for i in range(len(prefix[prefixes[0]])):
+        d['Method'] = prefix[prefixes[0]]['Method'].to_list()
+        d['ListSize'] = prefix[prefixes[0]]['ListSize'].to_list()
+        d[f'Mean{prefixes[0]}'] = prefix[prefixes[0]]['Mean_ns'].to_list()
+        d[f'Mean{prefixes[1]}'] = prefix[prefixes[1]]['Mean_ns'].to_list()
+        d['Mean%'] = np.array(prefix[prefixes[0]]['Mean_ns']) / np.array(prefix[prefixes[1]]['Mean_ns']) * 100
+        d[f'Allocated{prefixes[0]}'] = prefix[prefixes[0]]['Allocated'].to_list()
+        d[f'Allocated{prefixes[1]}'] = prefix[prefixes[1]]['Allocated'].to_list()
+        d['Allocated%'] = np.array(prefix[prefixes[0]]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated']) * 100
+
+    return pd.DataFrame(d)
 
 
 # Agrupa os dados por uma coluna de um DataFrame e os mapeia para um dicionário
@@ -78,28 +123,6 @@ def group_by_argument(d: pd.DataFrame, column_name: str) -> dict[str, pd.DataFra
     for value in unique_values:
         group[value] = d[d[column_name] == value]
     return group
-
-
-# Remove um prefixo de uma String
-def remove_comparison_prefix(value: str, prefix: str) -> str:
-    return value[len(prefix):]
-
-
-def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -> dict[str, pd.DataFrame]:
-    prefix: dict[str, pd.DataFrame] = {}
-    df = df.sort_values(by=column_name)
-
-    for p in range(len(prefixes)):
-        prefix[prefixes[p]] = df.iloc[int(p * len(df) / len(prefixes)):int((p+1) * len(df) / len(prefixes)), :]
-        prefix[prefixes[p]][column_name] = prefix[prefixes[p]][column_name]\
-            .apply(lambda x: remove_comparison_prefix(x, prefixes[p]))
-
-    print(prefix[prefixes[0]])
-    d = {'Method': [], 'ListSize': [], f'Mean {prefixes[0]}': [], f'Mean {prefixes[1]}': [], 'Mean %': [], 'Error %': [], 'StdDev %': [], f'Allocated {prefixes[0]}': [], f'Allocated {prefixes[1]}': [], 'Allocated %': []}
-    for i in range(len(prefix[prefixes[0]])):
-        d['Method'].append(prefix[prefixes[0]].loc[i, 'Method'])
-    
-    print(d)
 
 
 def main() -> None:
@@ -114,8 +137,8 @@ def main() -> None:
 
     group = compare_dataframe(all_data, 'Method', ['FastList', 'NormalList'])
 
-    for k, v in group.items():
-        print(f'\n{k}:\n{v}\n')
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+        print(group)
 
 
 if __name__ == '__main__':
