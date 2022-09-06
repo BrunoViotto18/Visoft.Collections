@@ -79,49 +79,51 @@ def format_memory_scale(value: str) -> int:
     return byte
 
 
-# Função de mapa para a criação de uma coluna em um DataFrame
-def add_formatted_time_scale_column(df: pd.DataFrame) -> pd.DataFrame:
-    return df['Mean'].apply(format_time_scale)
-
-
 # Remove o prefixo de uma String
 def remove_prefix(value: str, prefix: str) -> str:
     return value[len(prefix):]
 
 
+# Dado um DataFrame, ele é separado em 2 através dos sufixos da coluna 'Method'
+def prepare_dataframe_to_comparison(df: pd.DataFrame, prefix1: str, prefix2: str) -> dict[str, pd.DataFrame]:
+    df = df.sort_values(by='Method')
+    data: dict[str, pd.DataFrame] = {
+        prefix1: df.copy().iloc[:int(len(df) / 2), :],
+        prefix2: df.copy().iloc[int(len(df) / 2):, :]
+    }
+
+    for prefix in [prefix1, prefix2]:
+        data[prefix].loc[:, 'Method'] = data[prefix].loc[:, 'Method'].apply(lambda x: remove_prefix(x, prefix))
+        data[prefix]['Mean'] = data[prefix]['Mean'].apply(format_time_scale)
+        data[prefix]['Allocated'] = data[prefix]['Allocated'].apply(format_memory_scale)
+
+    return data
+
+
 # Ao receber um DataFrame, retorna um DataFrame relatório
 # Sobre os dados do DataFrame provido (Method, ListSize, Mean, Allocated)
-def compare_dataframe(df: pd.DataFrame, column_name: str, prefixes: list[str]) -> pd.DataFrame:
-    prefix: dict[str, pd.DataFrame] = {}
-    df = df.sort_values(by=column_name)
+def compare_dataframe(df: pd.DataFrame, prefixes: list[str], prefix1: str, prefix2: str) -> pd.DataFrame:
+    prefix = prepare_dataframe_to_comparison(df, prefix1, prefix2)
 
-    for p in range(2):
-        prefix[prefixes[p]] = df.iloc[int(p * len(df) / len(prefixes)):int((p+1) * len(df) / len(prefixes)), :]
-        prefix[prefixes[p]][column_name] = prefix[prefixes[p]][column_name]\
-            .apply(lambda x: remove_prefix(x, prefixes[p]))
-        prefix[prefixes[p]]['Allocated'] = prefix[prefixes[p]]['Allocated']\
-            .apply(format_memory_scale)
+    data = {}
+    data['Method'] = prefix[prefix1]['Method'].to_list()
+    data['ListSize'] = prefix[prefix1]['ListSize'].to_list()
+    data[f'Mean{prefix1}'] = prefix[prefix1]['Mean'].to_list()
+    data[f'Mean{prefix2}'] = prefix[prefix2]['Mean'].to_list()
+    data['Mean X'] = np.array(prefix[prefix1]['Mean']) / np.array(prefix[prefix2]['Mean'])
+    data[f'Allocated{prefix1}'] = prefix[prefix1]['Allocated'].to_list()
+    data[f'Allocated{prefix2}'] = prefix[prefix2]['Allocated'].to_list()
+    data['Allocated X'] = np.array(prefix[prefix1]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated'])
 
-    d = {}
-    for i in range(len(prefix[prefixes[0]])):
-        d['Method'] = prefix[prefixes[0]]['Method'].to_list()
-        d['ListSize'] = prefix[prefixes[0]]['ListSize'].to_list()
-        d[f'Mean{prefixes[0]}'] = prefix[prefixes[0]]['Mean_ns'].to_list()
-        d[f'Mean{prefixes[1]}'] = prefix[prefixes[1]]['Mean_ns'].to_list()
-        d['Mean%'] = np.array(prefix[prefixes[0]]['Mean_ns']) / np.array(prefix[prefixes[1]]['Mean_ns']) * 100
-        d[f'Allocated{prefixes[0]}'] = prefix[prefixes[0]]['Allocated'].to_list()
-        d[f'Allocated{prefixes[1]}'] = prefix[prefixes[1]]['Allocated'].to_list()
-        d['Allocated%'] = np.array(prefix[prefixes[0]]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated']) * 100
-
-    return pd.DataFrame(d)
+    return pd.DataFrame(data)
 
 
 # Agrupa os dados por uma coluna de um DataFrame e os mapeia para um dicionário
-def group_by_argument(d: pd.DataFrame, column_name: str) -> dict[str, pd.DataFrame]:
+def group_by_column(df: pd.DataFrame, column_name: str) -> dict[str, pd.DataFrame]:
     group = {}
-    unique_values = d[column_name].unique()
+    unique_values = df[column_name].unique()
     for value in unique_values:
-        group[value] = d[d[column_name] == value]
+        group[value] = df[df[column_name] == value]
     return group
 
 
@@ -132,13 +134,15 @@ def main() -> None:
     raw_data = csvs_to_dataframe_dictionary(path, csvs)
     data = format_dataframe_dictionary(raw_data, ['Method', 'ListSize', 'Mean', 'Error', 'StdDev', 'Rank', 'Allocated'])
 
-    all_data = pd.concat(data.values())
-    all_data = all_data.assign(Mean_ns=add_formatted_time_scale_column).sort_values(by='Mean_ns', ascending=False)
+    data_union = pd.concat(data.values())
 
-    group = compare_dataframe(all_data, 'Method', ['FastList', 'NormalList'])
+    compared_data = compare_dataframe(data_union, ['FastList', 'NormalList'], 'FastList', 'NormalList')
 
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-        print(group)
+    group = group_by_column(compared_data, 'ListSize')
+
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.expand_frame_repr', False):
+        for k, v in group.items():
+            print(f'{k}:\n{v}')
 
 
 if __name__ == '__main__':
