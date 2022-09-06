@@ -1,11 +1,5 @@
 {
   "Version": 1,
-  "ProjectMap": {
-    "c2dc811b-344c-4acb-9f72-cf18189bf23a": {
-      "ProjectGuid": "c2dc811b-344c-4acb-9f72-cf18189bf23a",
-      "DisplayName": "Visoft.Collections",
-      "ColorIndex": 0
-    }
-  },
-  "NextColorIndex": 1
+  "ProjectMap": {},
+  "NextColorIndex": 0
 }

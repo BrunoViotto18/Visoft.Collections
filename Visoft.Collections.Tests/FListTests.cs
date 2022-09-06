@@ -46,22 +46,27 @@ public class FListTests
         Assert.Equal(1000, fList.Count);
     }
 
-    [Fact]
-    public void FListGet_ShouldRetrieveItem_WhenValidIndex()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(500)]
+    [InlineData(999)]
+    public void FListGet_ShouldRetrieveItem_WhenValidIndex(int index)
     {
         // Arrange
-        FList<int> fList = new FList<int>( 1);
+        FList<int> fList = new FList<int>();
+        for (var i = 0; i < 1000; i++)
+            fList.Add(i);
 
         // Act
-        int result = fList[0];
+        int result = fList[index];
 
         // Assert
-        Assert.Equal(1, result);
+        Assert.Equal(index, result);
     }
 
     [Theory]
     [InlineData(-1)]
-    [InlineData(1001)]
+    [InlineData(1000)]
     public void FListGet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
@@ -76,22 +81,27 @@ public class FListTests
         Assert.Throws<IndexOutOfRangeException>((Func<object>)Function);
     }
 
-    [Fact]
-    public void FListSet_ShouldSetItem_WhenValidIndex()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(500)]
+    [InlineData(999)]
+    public void FListSet_ShouldSetItem_WhenValidIndex(int index)
     {
         // Arrange
-        FList<int> fList = new FList<int>(1);
+        FList<int> fList = new FList<int>();
+        for (var i = 0; i < 1000; i++)
+            fList.Add(i);
 
         // Act
-        fList[0] = 2;
+        fList[index] = -1;
         
         // Assert
-        Assert.Equal(2, fList[0]);
+        Assert.Equal(-1, fList[index]);
     }
 
     [Theory]
     [InlineData(-1)]
-    [InlineData(1001)]
+    [InlineData(1000)]
     public void FListSet_ShouldThrowIndexOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
@@ -199,7 +209,7 @@ public class FListTests
     public void CopyTo_ShouldCopyFListToAnArray(int index)
     {
         // Arrange
-        var array = new int[1000];
+        var array = new int[1001];
         var myList = new FList<int>();
         for (var i = 0; i < 1000; i++)
         {
@@ -207,6 +217,7 @@ public class FListTests
                 myList.Add(i);
             array[i] = i;
         }
+        array[1000] = -1;
 
         // Act
         myList.CopyTo(array, index);
@@ -214,6 +225,23 @@ public class FListTests
         // Assert
         for (var i = 0; i < myList.Count; i++)
             Assert.Equal(array[index + i], myList[i]);
+        Assert.Equal(array[1000], -1);
+    }
+
+    [Fact]
+    public void CopyTo_ShouldThrowArgumentException_WhenArrayLengthBiggerThanFListLength()
+    {
+        // Arrange
+        int[] array = new int[999];
+        FList<int> fList = new FList<int>();
+        for (var i = 0; i < 1000; i++)
+            fList.Add(i);
+
+        // Act
+        void Action() => fList.CopyTo(array, 0);
+
+        // Assert
+        Assert.Throws<ArgumentException>(Action);
     }
 
     [Fact]
@@ -230,6 +258,23 @@ public class FListTests
         // Assert
         Assert.Equal(999, fList.Count);
         Assert.NotEqual(500, fList[500]);
+    }
+
+    [Fact]
+    public void Remove_ShouldRemoveOnlyTheFirstItem_WhenMoreThanOneItemExists()
+    {
+        // Arrange
+        var fList = new FList<int>();
+        fList.Add(-1);
+        for (var i = 0; i < 998; i++)
+            fList.Add(i);
+        fList.Add(-1);
+
+        // Act
+        fList.Remove(-1);
+
+        // Assert
+        Assert.Equal(-1, fList[998]);
     }
 
     [Fact]
@@ -263,8 +308,11 @@ public class FListTests
         Assert.False(result);
     }
 
-    [Fact]
-    public void RemoveAt_ShouldRemoveItemAtSpecifiedIndex()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(500)]
+    [InlineData(999)]
+    public void RemoveAt_ShouldRemoveItemAtSpecifiedIndex(int index)
     {
         // Arrange
         FList<int> fList = new FList<int>();
@@ -272,16 +320,18 @@ public class FListTests
             fList.Add(i);
             
         // Act
-        fList.RemoveAt(500);
+        fList.RemoveAt(index);
         
         // Assert
-        Assert.False(fList.Contains(500));
         Assert.Equal(999, fList.Count);
+        Assert.False(fList.Contains(index));
+        if (index != fList.Count)
+            Assert.Equal(index + 1, fList[index]);
     }
 
     [Theory]
     [InlineData(-1)]
-    [InlineData(1001)]
+    [InlineData(1000)]
     public void RemoveAt_ShouldThrowArgumentOutOfRangeException_WhenInvalidIndex(int index)
     {
         // Arrange
@@ -331,6 +381,8 @@ public class FListTests
         // Assert
         Assert.Equal(1281, fList.Count);
         Assert.Equal(-1, fList[index]);
+        if (index != fList.Count - 1)
+            Assert.Equal(index, fList[index + 1]);
     }
 
     [Theory]

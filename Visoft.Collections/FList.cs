@@ -68,15 +68,22 @@ public class FList<T> : IFList<T>
 
     public void CopyTo(T[] array, int arrayIndex)
     {
-        for (int i = 0; i < Count; i++)
-            array[i + arrayIndex] = _array[i];
+        try
+        {
+            for (int i = 0; i < Count; i++)
+                array[i + arrayIndex] = this[i];
+        }
+        catch (IndexOutOfRangeException)
+        {
+            throw new ArgumentException();
+        }
     }
     
     public bool Remove(T item)
     {
         int index = -1;
         for (int i = 0; i < Count; i++)
-            if (Equals(_array[i], item))
+            if (Equals(this[i], item))
             {
                 index = i;
                 break;
@@ -86,7 +93,7 @@ public class FList<T> : IFList<T>
             return false;
         
         for (int i = index; i < Count - 1; i++)
-            _array[i] = _array[i + 1];
+            this[i] = this[i + 1];
         Count--;
         return true;
     }
@@ -97,14 +104,14 @@ public class FList<T> : IFList<T>
             throw new ArgumentOutOfRangeException(nameof(index));
             
         for (int i = index; i < Count - 1; i++)
-            _array[i] = _array[i + 1];
+            _array[i] = this[i + 1];
         Count--;
     }
 
     public int IndexOf(T item)
     {
         for (int i = 0; i < Count; i++)
-            if (Equals(_array[i], item))
+            if (Equals(this[i], item))
                 return i;
         return -1;
     }
@@ -116,14 +123,16 @@ public class FList<T> : IFList<T>
 
         if (Count == _array.Length)
         {
-            T[] a = new T[_array.Length * 2];
-            _array.CopyTo(a, 0);
-            _array = a;
+            T[] array = new T[_array.Length * 2];
+            for (int i = 0; i < Count; i++)
+                array[i] = _array[i];
+            _array = array;
         }
         
         for (int i = Count; i > index; i--)
             _array[i] = _array[i - 1];
         _array[index] = item;
+
         Count++;
     }
 
