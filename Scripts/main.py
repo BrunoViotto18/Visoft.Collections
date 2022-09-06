@@ -105,15 +105,14 @@ def prepare_dataframe_to_comparison(df: pd.DataFrame, prefix1: str, prefix2: str
 def compare_dataframe(df: pd.DataFrame, prefixes: list[str], prefix1: str, prefix2: str) -> pd.DataFrame:
     prefix = prepare_dataframe_to_comparison(df, prefix1, prefix2)
 
-    data = {}
-    data['Method'] = prefix[prefix1]['Method'].to_list()
-    data['ListSize'] = prefix[prefix1]['ListSize'].to_list()
-    data[f'Mean{prefix1}'] = prefix[prefix1]['Mean'].to_list()
-    data[f'Mean{prefix2}'] = prefix[prefix2]['Mean'].to_list()
-    data['Mean X'] = np.array(prefix[prefix1]['Mean']) / np.array(prefix[prefix2]['Mean'])
-    data[f'Allocated{prefix1}'] = prefix[prefix1]['Allocated'].to_list()
-    data[f'Allocated{prefix2}'] = prefix[prefix2]['Allocated'].to_list()
-    data['Allocated X'] = np.array(prefix[prefix1]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated'])
+    data = {
+        'Method': prefix[prefix1]['Method'].to_list(), 'ListSize': prefix[prefix1]['ListSize'].to_list(),
+        f'Mean{prefix1}': prefix[prefix1]['Mean'].to_list(), f'Mean{prefix2}': prefix[prefix2]['Mean'].to_list(),
+        'Mean X': np.array(prefix[prefix1]['Mean']) / np.array(prefix[prefix2]['Mean']),
+        f'Allocated{prefix1}': prefix[prefix1]['Allocated'].to_list(),
+        f'Allocated{prefix2}': prefix[prefix2]['Allocated'].to_list(),
+        'Allocated X': np.array(prefix[prefix1]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated'])
+    }
 
     return pd.DataFrame(data)
 
