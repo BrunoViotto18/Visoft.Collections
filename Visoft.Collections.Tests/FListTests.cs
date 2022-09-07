@@ -136,29 +136,6 @@ public class FListTests
     }
 
     [Fact]
-    public void FListGetEnumerator_ShouldEnumerate_WithIEnumerableGetEnumerator()
-    {
-        // Arrange
-        FList<int> fList = new FList<int>();
-        for (var i = 0; i < 1000; i++)
-            fList.Add(i);
-        
-        // Act
-        var count = TestGetEnumeratorHelperMethod(fList);
-
-        // Assert
-        Assert.Equal(1000, count);
-
-        int TestGetEnumeratorHelperMethod<T>(FList<T> enumerator)
-        {
-            var counter = 0;
-            foreach (var _ in enumerator)
-                counter++;
-            return counter;
-        }
-    }
-
-    [Fact]
     public void Clear_ShouldClearFList()
     {
         // Arrange
@@ -289,6 +266,7 @@ public class FListTests
         var result = fList.Remove(500);
         
         // Assert
+        Assert.Equal(999, fList.Count);
         Assert.True(result);
     }
 
