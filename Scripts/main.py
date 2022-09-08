@@ -106,9 +106,6 @@ def prepare_dataframe_to_comparison(df: pd.DataFrame, prefix1: str, prefix2: str
 def compare_dataframe(df: pd.DataFrame, prefixes: list[str], prefix1: str, prefix2: str) -> pd.DataFrame:
     prefix = prepare_dataframe_to_comparison(df, prefix1, prefix2)
 
-    print(prefix[prefix1]['Mean'].to_list())
-    print(prefix[prefix2]['Mean'].to_list())
-
     data = {
         'Method': prefix[prefix1]['Method'].to_list(), 'ListSize': prefix[prefix1]['ListSize'].to_list(),
         f'Mean{prefix1}': prefix[prefix1]['Mean'].to_list(),
