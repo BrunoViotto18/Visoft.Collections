@@ -8,6 +8,7 @@ public class FList<T> : IFList<T>
     public int Count { get; private set; }
     public bool IsReadOnly => false;
 
+    // TODO: Alterar de int para uint para aumentar o tamanho total válido da lista
     public T this[int index]
     {
         get
@@ -69,32 +70,19 @@ public class FList<T> : IFList<T>
 
     public void CopyTo(T[] array, int arrayIndex=0)
     {
-        try
-        {
-            Array.Copy(_array, 0, array, arrayIndex, Count);
-        }
-        catch (IndexOutOfRangeException)
-        {
-            throw new ArgumentException();
-        }
+        Array.Copy(_array, 0, array, arrayIndex, Count);
     }
     
+    // TODO: Talvez haja uma maneira de retirar o if (se vira eu do futuro)
     public bool Remove(T item)
     {
-        int index = -1;
-        for (int i = 0; i < Count; i++)
-            if (Equals(this[i], item))
-            {
-                index = i;
-                break;
-            }
+        int index = IndexOf(item);
 
         if (index == -1)
             return false;
         
-        for (int i = index; i < Count - 1; i++)
-            this[i] = this[i + 1];
-        Count--;
+        Array.Copy(_array, index + 1, _array, index, Count-- - index - 1);
+        
         return true;
     }
 

@@ -126,6 +126,7 @@ def group_by_column(df: pd.DataFrame, column_name: str) -> dict[str, pd.DataFram
     return group
 
 
+# TODO: Há um bug no cálculo dos valores (talvez as colunas estejam invertidas na hora da divisão?)
 def main() -> None:
     path = get_logs_path('..', 'Console', r'bin\Release\net6.0\BenchmarkDotNet.Artifacts\results')
     csvs = get_directory_csvs(path)
