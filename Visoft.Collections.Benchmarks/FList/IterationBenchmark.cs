@@ -4,9 +4,12 @@ namespace Visoft.Collections.Benchmarks.FList;
 
 public class IterationBenchmark : FListBenchmark
 {
-    [GlobalSetup]
-    public void GlobalSetup()
+    [IterationSetup]
+    public void IterationSetup()
     {
+        NormalList = new List<int>();
+        FastList = new FList<int>();
+        
         for (var i = 0; i < ListSize; i++)
         {
             FastList.Add(i);
@@ -16,22 +19,18 @@ public class IterationBenchmark : FListBenchmark
 
     
     [Benchmark]
-    public int NormalListForeach()
+    public void NormalListForeach()
     {
-        int count = 0;
-        foreach (var _ in NormalList)
-            count++;
-
-        return count;
+        int _ = 0;
+        foreach (var __ in NormalList)
+            _++;
     }
 
     [Benchmark]
-    public int FastListForeach()
+    public void FastListForeach()
     {
-        int count = 0;
-        foreach (var _ in FastList)
-            count++;
-        
-        return count;
+        int _ = 0;
+        foreach (var __ in FastList)
+            _++;
     }
 }

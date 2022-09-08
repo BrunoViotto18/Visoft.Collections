@@ -4,10 +4,6 @@ namespace Visoft.Collections.Benchmarks.FList;
 
 public class ContainsBenchmark : FListBenchmark
 {
-    private int RandomNumber { get; set; }
-    private bool RandomFlag { get; set; }
-
-
     [IterationSetup]
     public void IterationSetup()
     {
@@ -19,22 +15,42 @@ public class ContainsBenchmark : FListBenchmark
             FastList.Add(i);
             NormalList.Add(i);
         }
-
-        if (!RandomFlag)
-            RandomNumber = new Random().Next(ListSize);
-        RandomFlag = !RandomFlag;
     }
     
-
+    
     [Benchmark]
-    public bool NormalListContains()
+    public bool NormalListContainsStart()
     {
-        return NormalList.Contains(RandomNumber);
+        return NormalList.Contains(ListSize / 5);
     }
     
     [Benchmark]
-    public bool FastListContains()
+    public bool FastListContainsStart()
     {
-        return FastList.Contains(RandomNumber);
+        return FastList.Contains(ListSize / 5);
+    }
+
+    [Benchmark]
+    public bool NormalListContainsMiddle()
+    {
+        return NormalList.Contains(ListSize / 2);
+    }
+    
+    [Benchmark]
+    public bool FastListContainsMiddle()
+    {
+        return FastList.Contains(ListSize / 2);
+    }
+    
+    [Benchmark]
+    public bool NormalListContainsEnd()
+    {
+        return NormalList.Contains(ListSize * 4 / 5);
+    }
+    
+    [Benchmark]
+    public bool FastListContainsEnd()
+    {
+        return FastList.Contains(ListSize * 4 / 5);
     }
 }
