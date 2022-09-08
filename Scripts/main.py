@@ -86,7 +86,8 @@ def remove_prefix(value: str, prefix: str) -> str:
 
 # Dado um DataFrame, ele é separado em 2 através dos sufixos da coluna 'Method'
 def prepare_dataframe_to_comparison(df: pd.DataFrame, prefix1: str, prefix2: str) -> dict[str, pd.DataFrame]:
-    df = df.sort_values(by='Method')
+    df = df.sort_values(by=['Method', 'ListSize'])
+    print(df)
     data: dict[str, pd.DataFrame] = {
         prefix1: df.copy().iloc[:int(len(df) / 2), :],
         prefix2: df.copy().iloc[int(len(df) / 2):, :]
@@ -105,13 +106,17 @@ def prepare_dataframe_to_comparison(df: pd.DataFrame, prefix1: str, prefix2: str
 def compare_dataframe(df: pd.DataFrame, prefixes: list[str], prefix1: str, prefix2: str) -> pd.DataFrame:
     prefix = prepare_dataframe_to_comparison(df, prefix1, prefix2)
 
+    print(prefix[prefix1]['Mean'].to_list())
+    print(prefix[prefix2]['Mean'].to_list())
+
     data = {
         'Method': prefix[prefix1]['Method'].to_list(), 'ListSize': prefix[prefix1]['ListSize'].to_list(),
-        f'Mean{prefix1}': prefix[prefix1]['Mean'].to_list(), f'Mean{prefix2}': prefix[prefix2]['Mean'].to_list(),
+        f'Mean{prefix1}': prefix[prefix1]['Mean'].to_list(),
+        f'Mean{prefix2}': prefix[prefix2]['Mean'].to_list(),
         'Mean X': np.array(prefix[prefix1]['Mean']) / np.array(prefix[prefix2]['Mean']),
         f'Allocated{prefix1}': prefix[prefix1]['Allocated'].to_list(),
         f'Allocated{prefix2}': prefix[prefix2]['Allocated'].to_list(),
-        'Allocated X': np.array(prefix[prefix1]['Allocated']) / np.array(prefix[prefixes[1]]['Allocated'])
+        'Allocated X': np.array(prefix[prefix1]['Allocated']) / np.array(prefix[prefix2]['Allocated'])
     }
 
     return pd.DataFrame(data)
@@ -126,7 +131,6 @@ def group_by_column(df: pd.DataFrame, column_name: str) -> dict[str, pd.DataFram
     return group
 
 
-# TODO: Há um bug no cálculo dos valores (talvez as colunas estejam invertidas na hora da divisão?)
 def main() -> None:
     path = get_logs_path('..', 'Console', r'bin\Release\net6.0\BenchmarkDotNet.Artifacts\results')
     csvs = get_directory_csvs(path)
