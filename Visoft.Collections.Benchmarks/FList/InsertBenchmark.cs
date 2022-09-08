@@ -1,6 +1,6 @@
 ﻿namespace Visoft.Collections.Benchmarks.FList;
 
-public class InsertBenchmark
+public class InsertBenchmark : FListBenchmark
 {
     
 }

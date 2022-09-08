@@ -5,7 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Visoft.Collections.Benchmarks.FList\Visoft.Collections.Benchmarks.FList.csproj" />
+    <ProjectReference Include="..\Visoft.Collections.Benchmarks\Visoft.Collections.Benchmarks.csproj" />
     <ProjectReference Include="..\Visoft.Collections\Visoft.Collections.csproj" />
   </ItemGroup>
 

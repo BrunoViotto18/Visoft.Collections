@@ -2,9 +2,12 @@
 
 namespace Visoft.Collections.Benchmarks.FList;
 
+using Collections.Benchmarks;
+
+[BenchmarkRun]
 [MemoryDiagnoser]
 [RankColumn]
-public class FListBenchmark
+public abstract class FListBenchmark
 {
     protected FList<int> FastList { get; set; }
     protected List<int> NormalList { get; set; }
