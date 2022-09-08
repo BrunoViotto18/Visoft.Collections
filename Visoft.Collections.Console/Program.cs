@@ -1,4 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
+using Microsoft.CodeAnalysis;
+using static System.Console;
 
 namespace Visoft.Collections.Console;
 
@@ -10,6 +12,6 @@ public static class Program
     static void Main()
     {
         // Benchmarks.Run();
-        BenchmarkRunner.Run<RemoveBenchmark>();
+        BenchmarkRunner.Run<InsertBenchmark>();
     }
 }

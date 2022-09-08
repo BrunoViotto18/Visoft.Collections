@@ -1,4 +1,5 @@
-﻿using BenchmarkDotNet.Attributes;
+﻿using System.Collections;
+using BenchmarkDotNet.Attributes;
 
 namespace Visoft.Collections.Benchmarks.FList;
 

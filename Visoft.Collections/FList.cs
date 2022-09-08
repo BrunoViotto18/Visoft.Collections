@@ -1,10 +1,15 @@
-﻿namespace Visoft.Collections;
+﻿using System.Runtime.CompilerServices;
+
+namespace Visoft.Collections;
 
 using Interfaces;
 
 public class FList<T> : IFList<T>
 {
     private T[] _array;
+    private readonly int _defaultSize = 8;
+    public static readonly T[] Empty = new T[0];
+    
     public int Count { get; private set; }
     public bool IsReadOnly => false;
 
@@ -30,7 +35,7 @@ public class FList<T> : IFList<T>
 
     public FList()
     {
-        _array = new T[10];
+        _array = Empty;
         Count = 0;
     }
 
@@ -44,28 +49,31 @@ public class FList<T> : IFList<T>
 
     /* List Methods */
 
+    private void Grow()
+    {
+        var array = _array;
+        _array = new T[_array.Length == 0 ? _defaultSize : _array.Length * 2];
+        Array.Copy(array, _array, Count);
+    }
+    
     public void Add(T item)
     {
-        if (_array.Length <= Count)
-        {
-            var array = new T[_array.Length * 2];
-            for (int i = 0; i < Count; i++)
-                array[i] = _array[i];
-            //Array.Copy(_array, array, Count);
-            _array = array;
-        }
+        if (_array.Length == Count)
+            Grow();
         _array[Count++] = item;
     }
 
     public void Clear()
-        => Count = 0;
+    {
+        if (RuntimeHelpers.IsReferenceOrContainsReferences<T>())
+            Array.Clear(_array);
+        Count = 0;
+    }
 
     public bool Contains(T item)
     {
-        for (int i = 0; i < Count; i++)
-            if (Equals(_array[i], item))
-                return true;
-        return false;
+        int index = Array.IndexOf(_array, item, 0, Count);
+        return index >= 0;
     }
 
     public void CopyTo(T[] array, int arrayIndex=0)
@@ -90,10 +98,8 @@ public class FList<T> : IFList<T>
     {
         if (index < 0 || index >= Count)
             throw new ArgumentOutOfRangeException(nameof(index));
-            
-        for (int i = index; i < Count - 1; i++)
-            _array[i] = this[i + 1];
-        Count--;
+        
+        Array.Copy(_array, index + 1, _array, index, Count-- - index - 1);
     }
 
     public int IndexOf(T item)
@@ -107,18 +113,18 @@ public class FList<T> : IFList<T>
             throw new ArgumentOutOfRangeException(nameof(index));
 
         if (Count == _array.Length)
-        {
-            T[] array = new T[_array.Length * 2];
-            for (int i = 0; i < Count; i++)
-                array[i] = _array[i];
-            _array = array;
-        }
+            Grow();
         
-        for (int i = Count; i > index; i--)
-            _array[i] = _array[i - 1];
+        Array.Copy(_array, index, _array, index + 1, Count++ - index);
         _array[index] = item;
+    }
+    
+    
+    /* Enumerator */
 
-        Count++;
+    public FListEnumerator<T> GetEnumerator()
+    {
+        return new FListEnumerator<T>(_array, Count);
     }
 
 
@@ -126,13 +132,4 @@ public class FList<T> : IFList<T>
 
     public override string ToString()
         => $"[{String.Join(", ", _array.Take(Count))}]";
-
-
-    /* Enumerator */
-
-    public IEnumerator<T> GetEnumerator()
-    {
-        for (int i = 0; i < Count; i++)
-            yield return _array[i];
-    }
 }

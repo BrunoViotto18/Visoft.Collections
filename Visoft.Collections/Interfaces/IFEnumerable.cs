@@ -2,5 +2,5 @@
 
 public interface IFEnumerable<out T>
 {
-    public IEnumerator<T> GetEnumerator();
+    //public Enumerator<T> GetEnumerator();
 }

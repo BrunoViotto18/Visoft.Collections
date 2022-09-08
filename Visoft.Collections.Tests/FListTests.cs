@@ -357,6 +357,8 @@ public class FListTests
         Assert.Equal(expected, index);
     }
 
+    // TODO: Tornar este teste mais genérico usando Reflection para obter o tamanho default do array interno
+    // TODO: Possível bug neste teste
     [Theory]
     [InlineData(0)]
     [InlineData(500)]
