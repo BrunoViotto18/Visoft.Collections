@@ -110,10 +110,7 @@ public class FList<T> : IFList<T>
 
     public int IndexOf(T item)
     {
-        for (int i = 0; i < Count; i++)
-            if (Equals(this[i], item))
-                return i;
-        return -1;
+        return Array.IndexOf(_array, item, 0, Count);
     }
 
     public void Insert(int index, T item)

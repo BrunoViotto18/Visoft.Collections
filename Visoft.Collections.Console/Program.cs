@@ -10,6 +10,6 @@ public static class Program
     static void Main()
     {
         // Benchmarks.Run();
-        BenchmarkRunner.Run<SetBenchmark>();
+        BenchmarkRunner.Run<IndexOfBenchmark>();
     }
 }
