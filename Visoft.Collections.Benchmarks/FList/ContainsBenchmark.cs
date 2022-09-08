@@ -11,6 +11,9 @@ public class ContainsBenchmark : FListBenchmark
     [IterationSetup]
     public void IterationSetup()
     {
+        FastList = new FList<int>();
+        NormalList = new List<int>();
+        
         for (int i = 0; i < ListSize; i++)
         {
             FastList.Add(i);
@@ -21,24 +24,17 @@ public class ContainsBenchmark : FListBenchmark
             RandomNumber = new Random().Next(ListSize);
         RandomFlag = !RandomFlag;
     }
-
-    [IterationCleanup]
-    public void IterationCleanup()
-    {
-        FastList = new FList<int>();
-        NormalList = new List<int>();
-    }
-
-
-    [Benchmark]
-    public bool FastListContains()
-    {
-        return FastList.Contains(RandomNumber);
-    }
+    
 
     [Benchmark]
     public bool NormalListContains()
     {
         return NormalList.Contains(RandomNumber);
+    }
+    
+    [Benchmark]
+    public bool FastListContains()
+    {
+        return FastList.Contains(RandomNumber);
     }
 }

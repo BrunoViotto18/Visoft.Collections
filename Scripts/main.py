@@ -141,7 +141,7 @@ def main() -> None:
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.expand_frame_repr', False):
         for k, v in group.items():
-            print(f'{k}:\n{v}')
+            print(f'{k}:\n{v.sort_values(by="Mean X", ascending=False)}')
 
 
 if __name__ == '__main__':

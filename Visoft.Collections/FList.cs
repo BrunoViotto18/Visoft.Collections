@@ -35,7 +35,8 @@ public class FList<T> : IFList<T>
 
     public FList(params T[] array)
     {
-        _array = array;
+        _array = new T[array.Length];
+        Array.Copy(array,_array, array.Length);
         Count = array.Length;
     }
 
@@ -66,12 +67,11 @@ public class FList<T> : IFList<T>
         return false;
     }
 
-    public void CopyTo(T[] array, int arrayIndex)
+    public void CopyTo(T[] array, int arrayIndex=0)
     {
         try
         {
-            for (int i = 0; i < Count; i++)
-                array[i + arrayIndex] = this[i];
+            Array.Copy(_array, 0, array, arrayIndex, Count);
         }
         catch (IndexOutOfRangeException)
         {

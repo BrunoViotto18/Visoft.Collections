@@ -1,4 +1,6 @@
-﻿namespace Visoft.Collections.Console;
+﻿using BenchmarkDotNet.Running;
+
+namespace Visoft.Collections.Console;
 
 using Benchmarks;
 using Benchmarks.FList;
@@ -7,7 +9,7 @@ public static class Program
 {
     static void Main()
     {
-        Benchmarks.Run();
-        // BenchmarkRunner.Run<AddBenchmark>();
+        // Benchmarks.Run();
+        BenchmarkRunner.Run<CopyToBenchmark>();
     }
 }

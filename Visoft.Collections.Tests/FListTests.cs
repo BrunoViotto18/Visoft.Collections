@@ -16,6 +16,21 @@ public class FListTests
         // Assert
         Assert.Equal(3, fList.Count);
     }
+
+    [Fact]
+    public void Constructor_ShouldNotBeAbleToAccessInternalArray_WhenInitializedWithAnArray()
+    {
+        // Arrange
+        int[] array = Enumerable.Range(0, 10).ToArray();
+        FList<int> fList;
+
+        // Act
+        fList = new FList<int>(array);
+        array[0] = -1;
+
+        // Assert
+        Assert.Equal(0, fList[0]);
+    }
     
     [Fact]
     public void Add_ShouldAddItem()
