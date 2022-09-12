@@ -17,15 +17,13 @@ public class ConstructorBenchmark : FListBenchmark
     [Benchmark]
     public void NormalListConstructor()
     {
-        for (int i = 0; i < ListSize; i++)
-            NormalList = new List<int>();
+        NormalList = new List<int>();
     }
 
     [Benchmark]
     public void FastListConstructor()
     {
-        for (int i = 0; i < ListSize; i++)
-            FastList = new FList<int>();
+        FastList = new FList<int>();
     }
 
     [Benchmark]

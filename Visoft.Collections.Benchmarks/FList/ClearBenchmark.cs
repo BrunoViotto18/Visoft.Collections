@@ -9,6 +9,7 @@ public class ClearBenchmark : FListBenchmark
     {
         NormalList = new List<int>();
         FastList = new FList<int>();
+        
         for (var i = 0; i < ListSize; i++)
         {
             FastList.Add(i);

@@ -133,6 +133,10 @@ def main() -> None:
     csvs = get_directory_csvs(path)
 
     raw_data = csvs_to_dataframe_dictionary(path, csvs)
+
+    for k, v in raw_data.items():
+        print(k, '\n', v.columns)
+
     data = format_dataframe_dictionary(raw_data, ['Method', 'ListSize', 'Mean', 'Error', 'StdDev', 'Rank', 'Allocated'])
 
     data_union = pd.concat(data.values())

@@ -7,7 +7,7 @@ using Interfaces;
 public class FList<T> : IFList<T>
 {
     private T[] _array;
-    private readonly int _defaultSize = 8;
+    private const int DefaultSize = 8;
     public static readonly T[] Empty = new T[0];
     
     public int Count { get; private set; }
@@ -52,7 +52,7 @@ public class FList<T> : IFList<T>
     private void Grow()
     {
         var array = _array;
-        _array = new T[_array.Length == 0 ? _defaultSize : _array.Length * 2];
+        _array = new T[_array.Length == 0 ? DefaultSize : _array.Length * 2];
         Array.Copy(array, _array, Count);
     }
     
@@ -77,11 +77,9 @@ public class FList<T> : IFList<T>
     }
 
     public void CopyTo(T[] array, int arrayIndex=0)
-    {
-        Array.Copy(_array, 0, array, arrayIndex, Count);
-    }
+        => Array.Copy(_array, 0, array, arrayIndex, Count);
     
-    // TODO: Talvez haja uma maneira de retirar o if (se vira eu do futuro)
+    // TODO: Talvez haja uma maneira de retirar o if (se vira eu do futuro) (vai se ferrar eu do passado)
     public bool Remove(T item)
     {
         int index = IndexOf(item);
@@ -96,20 +94,18 @@ public class FList<T> : IFList<T>
 
     public void RemoveAt(int index)
     {
-        if (index < 0 || index >= Count)
+        if (index >= Count)
             throw new ArgumentOutOfRangeException(nameof(index));
         
         Array.Copy(_array, index + 1, _array, index, Count-- - index - 1);
     }
 
     public int IndexOf(T item)
-    {
-        return Array.IndexOf(_array, item, 0, Count);
-    }
+        => Array.IndexOf(_array, item, 0, Count);
 
     public void Insert(int index, T item)
     {
-        if (index < 0 || index > Count)
+        if (index > Count)
             throw new ArgumentOutOfRangeException(nameof(index));
 
         if (Count == _array.Length)
@@ -123,9 +119,7 @@ public class FList<T> : IFList<T>
     /* Enumerator */
 
     public FListEnumerator<T> GetEnumerator()
-    {
-        return new FListEnumerator<T>(_array, Count);
-    }
+        => new(_array, Count);
 
 
     /* Override Methods */

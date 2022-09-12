@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Compile Remove="Teste.cs" />
+    <Compile Remove="Tests.cs" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -17,6 +18,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Visoft.Collections.Benchmarks</PackageId>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
 </Project>

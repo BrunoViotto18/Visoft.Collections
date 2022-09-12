@@ -21,16 +21,14 @@ public class SetBenchmark : FListBenchmark
     [Benchmark]
     public void NormalListSet()
     {
-        int value = 0;
-        for (var i = 0; i < ListSize; i++)
-            NormalList[i] = value;
+        var value = ListSize / 2;
+        NormalList[value] = value;
     }
 
     [Benchmark]
     public void FastListSet()
     {
-        int value = 0;
-        for (var i = 0; i < ListSize; i++)
-            FastList[i] = value;
+        var value = ListSize / 2;
+        FastList[value] = value;
     }
 }

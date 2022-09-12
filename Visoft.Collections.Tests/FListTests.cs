@@ -8,10 +8,9 @@ public class FListTests
     public void Constructor_ShouldInitializeFList_WhenProvidedAnArray()
     {
         // Arrange
-        FList<int> fList;
 
         // Act
-        fList = new FList<int>(new int[] { 1, 2, 3 });
+        FList<int> fList = new FList<int>(new int[] { 1, 2, 3 });
 
         // Assert
         Assert.Equal(3, fList.Count);
@@ -22,10 +21,9 @@ public class FListTests
     {
         // Arrange
         int[] array = Enumerable.Range(0, 10).ToArray();
-        FList<int> fList;
 
         // Act
-        fList = new FList<int>(array);
+        FList<int> fList = new FList<int>(array);
         array[0] = -1;
 
         // Assert
@@ -166,6 +164,21 @@ public class FListTests
     }
 
     [Fact]
+    public void Clear_ShouldClearFList_WhenItemsAreReferences()
+    {
+        // Arrange
+        FList<string> fList = new FList<string>();
+        for (var i = 0; i < 1000; i++)
+            fList.Add(i.ToString());
+        
+        // Act
+        fList.Clear();
+
+        // Assert
+        Assert.Equal(0, fList.Count);
+    }
+
+    [Fact]
     public void Contains_ShouldReturnTrue_WhenItemExistsInFList()
     {
         // Arrange
@@ -230,7 +243,7 @@ public class FListTests
             fList.Add(i);
 
         // Act
-        void Action() => fList.CopyTo(array, 0);
+        void Action() => fList.CopyTo(array);
 
         // Assert
         Assert.Throws<ArgumentException>(Action);
@@ -362,19 +375,19 @@ public class FListTests
     [Theory]
     [InlineData(0)]
     [InlineData(500)]
-    [InlineData(1280)]
+    [InlineData(1024)]
     public void Insert_ShouldInsertItemAtSpecifiedIndex(int index)
     {
         // Arrange
         FList<int> fList = new FList<int>();
-        for (int i = 0; i < 1280; i++)
+        for (int i = 0; i < 1024; i++)
             fList.Add(i);
         
         // Act
         fList.Insert(index, -1);
         
         // Assert
-        Assert.Equal(1281, fList.Count);
+        Assert.Equal(1025, fList.Count);
         Assert.Equal(-1, fList[index]);
         if (index != fList.Count - 1)
             Assert.Equal(index, fList[index + 1]);

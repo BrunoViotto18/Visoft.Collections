@@ -15,14 +15,12 @@ public class AddBenchmark : FListBenchmark
     [Benchmark]
     public void NormalListAdd()
     {
-        for (var i = 0; i < ListSize; i++)
-            NormalList.Add(i);
+        NormalList.Add(-1);
     }
     
     [Benchmark]
     public void FastListAdd()
     {
-        for (var i = 0; i < ListSize; i++)
-            FastList.Add(i);
+        FastList.Add(-1);
     }
 }

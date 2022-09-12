@@ -18,6 +18,22 @@ public class IterationBenchmark : FListBenchmark
         }
     }
 
+
+    [Benchmark]
+    public void NormalListForLoop()
+    {
+        int _ = 0;
+        for (var i = 0; i < NormalList.Count; i++)
+            _++;
+    }
+
+    [Benchmark]
+    public void FastListForLoop()
+    {
+        int _ = 0;
+        for (var i = 0; i < FastList.Count; i++)
+            _++;
+    }
     
     [Benchmark]
     public void NormalListForeach()

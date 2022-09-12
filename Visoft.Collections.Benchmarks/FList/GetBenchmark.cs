@@ -21,16 +21,12 @@ public class GetBenchmark : FListBenchmark
     [Benchmark]
     public void NormalListGet()
     {
-        int _ = 0;
-        for (var i = 0; i < ListSize; i++)
-            _ = NormalList[i];
+        var _ = NormalList[ListSize / 2];
     }
     
     [Benchmark]
     public void FastListGet()
     {
-        int _ = 0;
-        for (var i = 0; i < ListSize; i++)
-            _ = FastList[i];
+        var _ = FastList[ListSize / 2];
     }
 }
